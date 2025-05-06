@@ -76,7 +76,7 @@ void view_users(const app_data_t *data) {
     }
     for (size_t i = 0; i < data->resume_count; i++) {
         const resume_t *resume = &data->resumes[i];
-        printf("%zu. %s %s\n",
+        printf(COLOR_BLUE "%zu." COLOR_RESET " %s %s\n",
                (i + 1), resume->name, resume->surname);
     }
 }
@@ -89,7 +89,7 @@ void print_cv(const resume_t *resume) {
     const position_t *position = resume->first_position;
     size_t i = 0;
     while (position != NULL) {
-        printf("  %llu. %s at %s\n",
+        printf(COLOR_BLUE "  %llu. " COLOR_RESET "%s at %s\n",
                (unsigned long long) (++i), position->title, position->company);
         printf("    %s\n", position->description);
         position = position->next;
